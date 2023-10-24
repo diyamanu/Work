@@ -1,18 +1,21 @@
+from django.shortcuts import render
+from blog.models import ClassSchedule
+from blog.forms import ClassScheduleForm
 
-from django.shortcuts import render,HttpResponse
 
-# Create your views here.
-def welcome(request):
-    return render(request,"welcome.html",{})
+def index(request):
+    return render(request, "index.html", {})
 
-def Garde(request):
-    return render(request,"index.html",{})
 
-def Hour(request):
-    return render(request,"Hours.html",{})
+def listclass(request):
+    classes = ClassSchedule.objects.all()
+    return render(request, "listclass.html", {'classes': classes})
 
-def Sub1(request):
-    return render(request,"Sub1.html",{})
 
-def Sub(request):
-    return render(request,"Time and Date.html",{})
+def addclass(request):
+    form = ClassScheduleForm()
+    if request.method == 'POST':
+        form = ClassScheduleForm(request.POST)
+        form.save()
+        return index(request)
+    return render(request, "addclass.html", {'form': form})

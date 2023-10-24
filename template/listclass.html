@@ -1,20 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Education Software</title>
+    <title>List Class</title>
 </head>
 <body>
-<form action = "/sub" >
-<h1>CHOOSE PREFERRED DURATION OF CLASS</h1>
-<i>DURATION:<br>
-    <button>1-2 hours</button>
-    <br>
-    <button>2-3 hours</button>
-    <br>
-    <button>3-4 hours</button>
-     <br>
-    <button>4-5 hours</button>
-</i>
-</form>
+<h1>Scheduled Class</h1>
+
+    {% if classes %}
+    <table border="1">
+        <thead>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Duration</th>
+        </thead>
+        {% for schedule in classes %}
+        <tr>
+            <td>{{ schedule.sub_name }}</td>
+            <td>{{ schedule.grade }}</td>
+            <td>{{ schedule.duration }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{%else%}
+<p>No class scheduled</p>
+{%endif%}
 </body>
 </html>
