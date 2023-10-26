@@ -5,7 +5,15 @@
     <title>Index</title>
 </head>
 <body>
+    <h1> Please share the below credentials to your students</h1>
+    {% if form %}
+    <p>Username: {{ form.teacher }}<br/>
+        Password: {{ form.password }}
+    </p>
+    {% endif %}
+    <h1>Please click on below links to view or schedule a class</h1>
     <a href = "/listclass">List scheduled class</a><br/>
     <a href = "/addclass">Schedule a class</a><br/>
+    <a href = "/deleteclass"> Delete a class</a>
 </body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Please enter your name and password</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.teacher.label_tag }}
+        {{ form.teacher }}
+        <br/>
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+    <a href = "/index">Home</a><br/>
+</body>
+</html>

@@ -7,9 +7,21 @@
 <body>
 <h1>Schedule a class</h1>
 <form method="post">
-    {{form.as_p}}
-    {%csrf_token%}
-    <input type = submit value = "ScheduleClass">
+    {% csrf_token %}
+        {{ form.sub_name.label_tag }}
+        {% for radio in form.sub_name %}
+            {{ radio.tag }} {{ radio.choice_label }}
+        {% endfor %}
+        <br/>
+        {{ form.grade.label_tag }}
+        {% for radio in form.grade %}
+            {{ radio.tag }} {{ radio.choice_label }}
+        {% endfor %}
+        <br/>
+        {{ form.duration.label_tag }}
+        {{ form.duration }}
+        <br/>
+        <button type="submit">Submit</button>
 </form>
 
 </body>

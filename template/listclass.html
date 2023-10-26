@@ -8,22 +8,11 @@
 <h1>Scheduled Class</h1>
 
     {% if classes %}
-    <table border="1">
-        <thead>
-            <th>Subject</th>
-            <th>Grade</th>
-            <th>Duration</th>
-        </thead>
-        {% for schedule in classes %}
-        <tr>
-            <td>{{ schedule.sub_name }}</td>
-            <td>{{ schedule.grade }}</td>
-            <td>{{ schedule.duration }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-{%else%}
-<p>No class scheduled</p>
-{%endif%}
+    <p>The {{ classes.sub_name }} class for the grade {{ classes.grade }} is scheduled for the duration of {{ classes.duration }} hrs</p>
+
+    {%else%}
+    <p>No class scheduled</p>
+    {% endif%}
+    <a href = "/index">Go back to home page</a><br/>
 </body>
 </html>
